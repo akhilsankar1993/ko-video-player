@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { uploadVideo } from '../actions/video_uploader'
+import { uploadVideo } from '../actions/video_actions'
 
 class VideoUploader extends Component {
   render() {
@@ -10,7 +10,7 @@ class VideoUploader extends Component {
           placeholder="upload your video here"
         />
         <button type="submit"
-          onClick={this.uploadVideoClick.bind(this)}>
+          onClick={() => this.uploadVideoClick}>
           Upload File
         </button>
       </div>

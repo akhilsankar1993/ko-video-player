@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { playNewVideoClip } from '../actions/video_actions'
 
 export class VideoPlaylist extends Component {
   render() {
@@ -9,7 +10,9 @@ export class VideoPlaylist extends Component {
         <ul>
           {this.props.videoItems.map((videoItem, index) =>
             <li key={index}>
-              {videoItem.sliceName}
+              <button onClick={() => this.viewVideoSlice(index)}>
+                {videoItem.sliceName}
+              </button>
             </li>
           )}
         </ul>
@@ -17,12 +20,17 @@ export class VideoPlaylist extends Component {
     )
   }
 
+  viewVideoSlice(index) {
+    this.props.playNewVideoClip(this.props.videoItems, index)
+  }
 }
 
 const mapStateToProps = (state) => {
   return { videoItems: state.videoActionReducers.videoItems }
 }
 
-const ConnectedVideoPlaylist = connect(mapStateToProps)(VideoPlaylist)
+const mapDispatchToProps = { playNewVideoClip }
+
+const ConnectedVideoPlaylist = connect(mapStateToProps, mapDispatchToProps)(VideoPlaylist)
 
 export default ConnectedVideoPlaylist

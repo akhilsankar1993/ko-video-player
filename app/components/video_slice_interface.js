@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { generateSlice } from '../actions/video_slice_interface'
+import { generateSlice } from '../actions/video_actions'
 
 export class VideoSliceInterface extends Component {
   render() {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { VideoPlayer } from './video_player'
+import ConnectedVideoPlayer from './video_player'
 import ConnectedVideoUploader from './video_uploader'
 import ConnectedVideoSliceInterface from './video_slice_interface'
 import ConnectedVideoPlaylist from './video_playlist'
@@ -10,7 +10,9 @@ export default class App extends Component {
     return (
       <div>
         <ConnectedVideoUploader />
-        <VideoPlayer />
+        <ConnectedVideoPlayer
+          videoSource={'dravid_drive.mov'}
+          type={'video/mp4'}/>
         <ConnectedVideoSliceInterface />
         <ConnectedVideoPlaylist />
       </div>
