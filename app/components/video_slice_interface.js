@@ -25,15 +25,15 @@ export class VideoSliceInterface extends Component {
   }
 
   runGenerateSliceAction() {
-    let sliceData = {
+    let videoItem = {
       sliceName: this.refs.sliceName.value,
       startTime: this.refs.startTime.value,
       endTime: this.refs.endTime.value
     }
 
-    console.log(sliceData)
+    console.log(videoItem)
 
-    this.props.generateSlice(sliceData)
+    this.props.generateSlice(videoItem)
   }
 }
 

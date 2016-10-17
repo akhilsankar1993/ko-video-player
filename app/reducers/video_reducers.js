@@ -2,7 +2,7 @@ import { combineReducers } from 'redux'
 
 const initialState = {
   uploadedFileDirectory: '',
-  sliceData: {}
+  videoItems: []
 }
 
 export function videoActionReducers(state=initialState, action) {
@@ -10,8 +10,7 @@ export function videoActionReducers(state=initialState, action) {
     case 'UPLOADED_VIDEO':
       return Object.assign({}, state, action.uploadedFileDirectory)
     case 'GENERATE_SLICE':
-      console.log('gets to generate slice reducer');
-      return Object.assign({}, state, action.sliceData)
+      return { ...state, videoItems: [...state.videoItems, action.videoItem] }
     default:
       return state
   }
