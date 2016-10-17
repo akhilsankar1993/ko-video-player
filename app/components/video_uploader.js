@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { uploadVideo } from '../actions/video_uploader'
 
-export class VideoUploader extends Component {
+class VideoUploader extends Component {
   render() {
     return (
       <div id="video-uploader-wrapper">
         <input id="video-uploader" ref="videoUploaderInput"
-          placeholder="add your video here"
+          placeholder="upload your video here"
         />
         <button type="submit"
           onClick={this.uploadVideoClick.bind(this)}>
@@ -17,8 +18,8 @@ export class VideoUploader extends Component {
   }
 
   uploadVideoClick () {
-    console.log(this.refs.videoUploaderInput.value)
-    console.log(this.props)
+    let videoFileDirectory = this.refs.videoUploaderInput.value
+    this.props.uploadVideo(videoFileDirectory)
   }
 }
 
@@ -26,6 +27,8 @@ const mapStateToProps = (state) => {
   return state
 }
 
-const ConnectedVideoUploader = connect(mapStateToProps)(VideoUploader)
+const mapDispatchToProps = { uploadVideo }
+
+const ConnectedVideoUploader = connect(mapStateToProps, mapDispatchToProps)(VideoUploader)
 
 export default ConnectedVideoUploader
