@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { VideoPlayer } from './video_player'
 import ConnectedVideoUploader from './video_uploader'
+import ConnectedVideoSliceInterface from './video_slice_interface'
+
 
 export default class App extends Component {
   render() {
@@ -8,6 +10,7 @@ export default class App extends Component {
       <div>
         <ConnectedVideoUploader />
         <VideoPlayer />
+        <ConnectedVideoSliceInterface />
       </div>
     )
   }

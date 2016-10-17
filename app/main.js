@@ -1,12 +1,18 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
+import { applyMiddleware, createStore } from 'redux'
+import createLogger from 'redux-logger'
 
 import App from './components/app'
-import { createStore } from 'redux'
 import { videoApp } from './reducers/index'
 
-let store = createStore(videoApp)
+const logger = createLogger()
+
+let store = createStore(
+  videoApp,
+  applyMiddleware(logger)
+)
 
 render (
   <Provider store={store}>

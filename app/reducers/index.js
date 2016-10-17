@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import { uploadVideo as uploadedVideoString } from './video_uploader'
+import { videoActionReducers } from './video_reducers'
 
 export const videoApp = combineReducers({
-  uploadedVideoString
+  videoActionReducers
 })
