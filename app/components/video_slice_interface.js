@@ -6,7 +6,7 @@ export class VideoSliceInterface extends Component {
   render() {
     return (
       <div>
-        <h3> Create a Video Slice</h3>
+        <h3> Create a Video Slice!</h3>
         <div>
           <label htmlFor="slicename">Enter Video Slice Name: </label>
           <input id="slicename" ref="sliceName" type="text" />
@@ -26,6 +26,7 @@ export class VideoSliceInterface extends Component {
 
   runGenerateSliceAction() {
     let videoItem = {
+      videoSource: this.props.videoSource,
       sliceName: this.refs.sliceName.value,
       startTime: this.refs.startTime.value,
       endTime: this.refs.endTime.value

@@ -3,6 +3,9 @@ import { connect } from 'react-redux'
 
 export class VideoPlayer extends Component {
   render() {
+
+    console.log('reaches the render method');
+
     return (
       <div id="video-player-wrapper">
         <video id="video-player"
@@ -12,8 +15,8 @@ export class VideoPlayer extends Component {
         height="360"
         preload controls>
           <source
-            src={this.props.videoSource}
-            type={this.props.type}
+            ref='videoSourceRef'
+            type={this.props.type || 'video/mp4'}
           />
         </video>
         <button onClick={this.viewState.bind(this)} />
@@ -23,6 +26,15 @@ export class VideoPlayer extends Component {
 
   viewState() {
     console.log(this.props);
+  }
+
+  componentDidUpdate() {
+    const { videoSource, startTime, endTime } = this.props
+    if(startTime === '') {
+      this.refs.videoSourceRef.src = videoSource
+    } else {
+      this.refs.videoSourceRef.src = `${videoSource}.mp4#t=${startTime},${endTime}`
+    }
   }
 
 }

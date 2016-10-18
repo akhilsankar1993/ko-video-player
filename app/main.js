@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import { applyMiddleware, createStore } from 'redux'
 import createLogger from 'redux-logger'
 
-import App from './components/app'
+import ConnectedApp from './components/app'
 import { videoApp } from './reducers/index'
 
 const logger = createLogger()
@@ -16,7 +16,7 @@ let store = createStore(
 
 render (
   <Provider store={store}>
-    <App />
+    <ConnectedApp />
   </Provider>,
   document.getElementById('root')
 )
