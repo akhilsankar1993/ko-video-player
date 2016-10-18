@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { findDOMNode } from 'react-dom'
 
 export class VideoPlayer extends Component {
   render() {
-
-    console.log('reaches the render method');
-
     return (
       <div id="video-player-wrapper">
         <video id="video-player"
@@ -28,12 +26,19 @@ export class VideoPlayer extends Component {
     console.log(this.props);
   }
 
+  componentDidMount() {
+    this.refs.videoSourceRef.src = this.props.videoSource
+  }
+
   componentDidUpdate() {
+
     const { videoSource, startTime, endTime } = this.props
     if(startTime === '') {
       this.refs.videoSourceRef.src = videoSource
+      findDOMNode(this.refs.videoPlayer).load()
     } else {
-      this.refs.videoSourceRef.src = `${videoSource}.mp4#t=${startTime},${endTime}`
+      this.refs.videoSourceRef.src = `${videoSource}#t=${startTime},${endTime}`
+      findDOMNode(this.refs.videoPlayer).load()
     }
   }
 

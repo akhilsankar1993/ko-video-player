@@ -42,6 +42,3 @@ const mapStateToProps = (state) => { return state }
 const ConnectedApp = connect(mapStateToProps, mapDispatchToProps)(App)
 
 export default ConnectedApp
-
-// videoSource={'dravid_drive.mov'}
-// type={'video/mp4'}/>

@@ -32,8 +32,6 @@ export class VideoSliceInterface extends Component {
       endTime: this.refs.endTime.value
     }
 
-    console.log(videoItem)
-
     this.props.generateSlice(videoItem)
   }
 }
@@ -41,7 +39,7 @@ export class VideoSliceInterface extends Component {
 const mapDispatchToProps = { generateSlice }
 
 const mapStateToProps = (state) => {
-  return state
+  return state.videoActionReducers.targetVideoItem
 }
 
 const ConnectedVideoSliceInterface =

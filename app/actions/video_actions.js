@@ -13,10 +13,6 @@ export function generateSlice(videoItem = {}) {
 }
 
 export function playNewVideoClip(videoItems, index=0) {
-
-  console.log('gets to action')
-  console.log(videoItems, 'videoItems!!!');
-
   return {
     type: 'PLAY_VIDEO',
     targetVideoItem: videoItems[index]
